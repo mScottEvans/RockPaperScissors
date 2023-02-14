@@ -1,40 +1,30 @@
-import random
+import random 
 
-user_wins = 0
-computer_wins = 0
 
-options = ["rock", "paper", "scissors"]
 
-while True:
-  user_input = input("Type Rock/Paper/Scissors or Q to quit: ").lower()
-  if user_input == "q":
-    quit()
+choices = ["rock","paper","scissors"]
+user_choice = input("Enter your choice(rock/paper/scissors)")
+computer_choice = random.choice(choices)
 
-  if user_input  not in options:
-    continue
+print("Computer choices:", computer_choice)
 
-  random_number = random.randint(0, 2)
-  # rock: 0, paper: 1, scissors: 2
-
-  computer_pick = options[random_number]
-  print("Computer picked", computer_pick + "." )
-
-  if user_input == "rock" and computer_pick == "scissors":
-  print("You won!")
-  user_wins +=1
-  
-  elif user_input == "paper" and computer_pick == "rock":
-  print("You won!")
-  user_wins +=1
-  
-  elif user_input == "scissors" and computer_pick == "paper":
-  print("You won!")
-  user_wins +=1
-
+if user_choice == computer_choice:
+  print("It's a TIE!")
+elif user_choice == "rock":
+  if computer_choice == "scissors":
+    print("You WON!!")
   else:
-    print("You lost!")
-    computer_wins += 1
-  
-print("You won", user_wins, "times.")
-print("The computer won", computer_wins, "times.")
-print("GoodBye!")
+    print("Computer wins *SAD FACE*")
+elif user_choice == "paper":
+  if computer_choice == "rock":
+    print("You WON!!")
+  else:
+    print("Computer wins *SAD FACE")
+elif user_choice == "scissors":
+  if computer_choice == "paper":
+    print("You WON!!")
+  else:
+    print("Computer wins *SAD FACE*")
+
+else: 
+  print("Invalid choice! Try Again!")
